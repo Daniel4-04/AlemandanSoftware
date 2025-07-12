@@ -14,6 +14,8 @@
             <li>No se permite la copia o distribución sin permiso.</li>
             <li>Debes mantener la confidencialidad de tu cuenta.</li>
         </ul>
+
+        <a href="/main pages/index.php" class="button">Volver al inicio</a>
     </div>
 </body>
 </html>

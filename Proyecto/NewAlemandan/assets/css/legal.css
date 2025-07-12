@@ -12,10 +12,12 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center; /* Centra contenido */
 }
 
 h1, h3 {
     color: #2c3e50;
+    margin-top: 0;
 }
 
 p, li, a {
@@ -32,11 +34,20 @@ form input, form textarea {
     border: 1px solid #ccc;
 }
 
-button {
+button, a.button {
     padding: 10px 20px;
     background-color: #2e86de;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, a.button:hover {
+    background-color: #1b4f72;
 }

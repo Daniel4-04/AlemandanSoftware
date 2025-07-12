@@ -8,6 +8,7 @@
 <body>
     <div class="container">
         <h1>Preguntas Frecuentes</h1>
+
         <h3>¿Qué es Alemandan CRM?</h3>
         <p>Es un sistema para administrar ventas, empleados, inventario y proveedores.</p>
 
@@ -16,6 +17,8 @@
 
         <h3>¿Cómo exporto reportes?</h3>
         <p>Desde el módulo de ventas puedes exportar en Excel o PDF.</p>
+
+        <a href="/main pages/index.php" class="button">Volver al inicio</a>
     </div>
 </body>
 </html>

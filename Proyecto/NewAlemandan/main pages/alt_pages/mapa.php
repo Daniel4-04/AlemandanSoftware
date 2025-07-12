@@ -19,6 +19,8 @@
             <li><a href="/main pages/alt_pages/404.php">Página 404</a></li>
             <li><a href="/main pages/alt_pages/500.php">Página 500</a></li>
         </ul>
+
+        <a href="/main pages/index.php" class="button">Volver al inicio</a>
     </div>
 </body>
 </html>

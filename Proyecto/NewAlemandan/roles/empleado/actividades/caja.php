@@ -1,6 +1,11 @@
 <?php
 require_once("../../../includes/db.php");
+session_start();
+
 $fecha_actual = date("d/m/Y");
+
+// Recuperar el nombre del cajero desde la sesión
+$cajero = $_SESSION['usuario'] ?? 'Cajero Desconocido';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
@@ -8,12 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($data && isset($data['accion']) && $data['accion'] === 'finalizar') {
         $productos = $data['productos'];
         $metodo_pago = $data['metodo_pago'] ?? 'efectivo';
-        $cajero = "Laura Torres";
 
         try {
             $conexion->beginTransaction();
 
-            // Verificar que haya stock suficiente
+            // Verificar stock disponible
             foreach ($productos as $producto) {
                 $stmtStock = $conexion->prepare("SELECT stock FROM productos WHERE id = ?");
                 $stmtStock->execute([$producto['id']]);
@@ -29,13 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
 
-            // Calcular total
+            // Calcular total de la venta
             $totalVenta = 0;
             foreach ($productos as $producto) {
                 $totalVenta += $producto['precio'] * $producto['cantidad'];
             }
 
-            // Registrar la venta
+            // Registrar venta
             $stmtVenta = $conexion->prepare("INSERT INTO ventas (fecha, productos, total, metodo_pago, cajero) VALUES (NOW(), ?, ?, ?, ?)");
             $stmtVenta->execute([json_encode($productos), $totalVenta, $metodo_pago, $cajero]);
 
@@ -76,16 +80,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="/roles/empleado/dashboard_emp.php" class="nav-item">
                 <i class="fas fa-home"></i><span>Inicio</span>
             </a>
+
             <a href="/roles/empleado/actividades/caja.php" class="nav-item active">
                 <i class="fas fa-cash-register"></i><span>Caja</span>
             </a>
+
+            <a href="/roles/empleado/actividades/mis_ventas.php" class="nav-item">
+                <i class="fas fa-chart-bar"></i><span>Mis Ventas</span>
+            </a>
+
             <a href="/main pages/index.php" class="nav-item">
                 <i class="fas fa-sign-out-alt"></i><span>Cerrar sesión</span>
             </a>
-        </div>
-        <div class="premium-box">
-            <h3>Centro de ayuda</h3>
-            <button class="premium-btn">Alemandan te respalda</button>
         </div>
     </div>
 
@@ -123,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="ticket-header">
                     <div class="ticket-info">
                         <div>Fecha: <span id="fechaActual"><?= $fecha_actual ?></span></div>
-                        <div>Cajera: Laura Torres</div>
+                        <div>Cajero: <?= htmlspecialchars($cajero) ?></div>
                         <div>N° Venta: <span id="numeroVenta">0001</span></div>
                     </div>
                 </div>
@@ -135,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <th>Precio</th>
                                 <th>Cant.</th>
                                 <th>Total</th>
-                                <th></th> <!-- Columna para botón eliminar -->
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody id="listaProductos">

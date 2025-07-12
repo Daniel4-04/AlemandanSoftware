@@ -14,6 +14,8 @@
             <li>Usamos tecnología segura para proteger tus datos.</li>
             <li>Puedes solicitar la eliminación de tu información en cualquier momento.</li>
         </ul>
+        
+        <a href="/main pages/index.php" class="button">Volver al inicio</a>
     </div>
 </body>
 </html>

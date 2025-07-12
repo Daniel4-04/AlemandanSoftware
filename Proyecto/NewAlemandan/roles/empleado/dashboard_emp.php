@@ -33,6 +33,11 @@ $usuario = $_SESSION['usuario'];
                 <i class="fas fa-cash-register"></i>
                 <span>Caja</span>
             </a>
+            
+            <a href="/roles/empleado/actividades/mis_ventas.php" class="nav-item">
+                <i class="fas fa-chart-bar"></i><span>Mis Ventas</span>
+            </a>
+
             <a href="/includes/logout.php" class="nav-item">
               <i class="fas fa-sign-out-alt"></i>
               <span>Cerrar sesión</span>

@@ -29,11 +29,6 @@ $empleados = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <a href="/roles/administrador/actividades/ventas.php" class="nav-item"><i class="fas fa-chart-line"></i><span>Ventas</span></a>
             <a href="/main pages/index.php" class="nav-item"><i class="fas fa-life-ring"></i><span>Cerrar sesión</span></a>
         </div>
-
-        <div class="premium-box">
-            <h3>Centro de ayuda</h3>
-            <button class="premium-btn">Alemandan te respalda</button>
-        </div>
     </div>
 
     <div class="main-content">

@@ -9,7 +9,7 @@
     <div class="container">
         <h1>Error 500</h1>
         <p>Ocurrió un problema en el servidor. Intenta de nuevo más tarde.</p>
-        <a href="/main pages/index.php">Volver al inicio</a>
+        <a href="/main pages/index.php" class="button">Volver al inicio</a>
     </div>
 </body>
 </html>

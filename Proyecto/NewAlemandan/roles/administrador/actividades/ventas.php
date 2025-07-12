@@ -3,6 +3,7 @@ require_once("../../../includes/db.php");
 
 $filtroProducto = $_GET['producto'] ?? '';
 $filtroCajero = $_GET['cajero'] ?? '';
+$filtroMetodo = $_GET['metodo_pago'] ?? '';
 $fechaDesde = $_GET['fecha_desde'] ?? '';
 $fechaHasta = $_GET['fecha_hasta'] ?? '';
 
@@ -18,6 +19,10 @@ if ($filtroCajero) {
     $sql .= " AND cajero LIKE :cajero";
     $params[':cajero'] = "%$filtroCajero%";
 }
+if ($filtroMetodo) {
+    $sql .= " AND metodo_pago = :metodo_pago";
+    $params[':metodo_pago'] = $filtroMetodo;
+}
 if ($fechaDesde && $fechaHasta) {
     $sql .= " AND fecha BETWEEN :desde AND :hasta";
     $params[':desde'] = $fechaDesde;
@@ -29,7 +34,7 @@ $stmt = $conexion->prepare($sql);
 $stmt->execute($params);
 $ventas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// JSON codificado para JS (exportación)
+// JSON codificado para exportar
 $jsonVentas = json_encode($ventas);
 ?>
 
@@ -61,11 +66,40 @@ $jsonVentas = json_encode($ventas);
             
             <!-- Filtros -->
             <form method="GET" class="filtro-form">
-                <input type="text" name="producto" placeholder="Buscar por producto" value="<?= htmlspecialchars($filtroProducto) ?>">
-                <input type="text" name="cajero" placeholder="Buscar por cajero" value="<?= htmlspecialchars($filtroCajero) ?>">
-                <input type="date" name="fecha_desde" value="<?= htmlspecialchars($fechaDesde) ?>">
-                <input type="date" name="fecha_hasta" value="<?= htmlspecialchars($fechaHasta) ?>">
-                <button type="submit">Aplicar Filtros</button>
+                <div class="filtro-campo">
+                    <label for="producto">Producto</label>
+                    <input type="text" name="producto" id="producto" placeholder="Ej: Manzana" value="<?= htmlspecialchars($filtroProducto) ?>">
+                </div>
+
+                <div class="filtro-campo">
+                    <label for="cajero">Cajero</label>
+                    <input type="text" name="cajero" id="cajero" placeholder="Ej: Laura" value="<?= htmlspecialchars($filtroCajero) ?>">
+                </div>
+
+                <div class="filtro-campo">
+                    <label for="metodo_pago">Método de Pago</label>
+                    <select name="metodo_pago" id="metodo_pago">
+                        <option value="">Todos</option>
+                        <option value="efectivo" <?= $filtroMetodo === 'efectivo' ? 'selected' : '' ?>>Efectivo</option>
+                        <option value="transferencia" <?= $filtroMetodo === 'transferencia' ? 'selected' : '' ?>>Transferencia</option>
+                        <option value="tarjeta" <?= $filtroMetodo === 'tarjeta' ? 'selected' : '' ?>>Tarjeta</option>
+                    </select>
+                </div>
+
+                <div class="filtro-campo">
+                    <label for="fecha_desde">Desde</label>
+                    <input type="date" name="fecha_desde" id="fecha_desde" value="<?= htmlspecialchars($fechaDesde) ?>">
+                </div>
+
+                <div class="filtro-campo">
+                    <label for="fecha_hasta">Hasta</label>
+                    <input type="date" name="fecha_hasta" id="fecha_hasta" value="<?= htmlspecialchars($fechaHasta) ?>">
+                </div>
+
+                <div class="filtro-campo">
+                    <label>&nbsp;</label>
+                    <button type="submit"><i class="fas fa-filter"></i> Aplicar Filtros</button>
+                </div>
             </form>
 
             <!-- Tabla de ventas -->
