@@ -1,0 +1,92 @@
+/* ... (otros estilos permanecen igual) ... */
+
+.product-list-container {
+    margin-top: 15px;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.product-table th {
+    padding: 10px;
+    text-align: left;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.product-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--gray-medium);
+}
+
+.product-header {
+    width: 40%;
+}
+
+.price-header, .qty-header, .total-header {
+    width: 20%;
+    text-align: right;
+}
+
+.product-item .product-col {
+    text-align: left;
+}
+
+.product-item .price-col,
+.product-item .qty-col,
+.product-item .total-col {
+    text-align: right;
+}
+
+.qty-col {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty-btn {
+    background: none;
+    border: 1px solid var(--gray-medium);
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary-color);
+}
+
+.empty-message {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-secondary);
+}
+
+.empty-message i {
+    font-size: 40px;
+    color: var(--gray-medium);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.empty-message p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ... (otros estilos permanecen igual) ... */

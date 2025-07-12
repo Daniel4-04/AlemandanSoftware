@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:wght@400;500;600&family=Roboto:wght@300;400;500;900&display=swap");
+
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Sección acuática */
+.aquatic-section {
+  position: relative;
+  width: calc(min(90rem, 90%));
+  margin: 0 auto;
+  min-height: 80vh;
+  padding-block: min(10vh, 3rem);
+}
+
+.aquatic-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fondos decorativos */
+.aquatic-bg {
+  position: absolute;
+  top: -4rem;
+  left: -12rem;
+  z-index: -1;
+  opacity: 0;
+  width: 30%;
+  max-width: 400px;
+}
+
+.aquatic-bg2 {
+  position: absolute;
+  bottom: -2rem;
+  right: -3rem;
+  z-index: -1;
+  width: 9.375rem;
+  opacity: 0;
+}
+
+/* Contenido de texto */
+.aquatic-content {
+  margin-bottom: 2rem;
+}
+
+.aquatic-content h1 {
+  color: #4370f8;
+}
+
+.section-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  color: #717171;
+  display: block;
+  font-weight: 700;
+}
+
+.section-title {
+  text-transform: capitalize;
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.4375rem, 3.25rem + 0.75vw, 4rem);
+  background-image: linear-gradient(-135deg, #0ab1ff, #4e7aff, #8a2be2);
+  filter: saturate(2);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  margin: 0.5rem 0;
+}
+
+.section-divider {
+  display: block;
+  background: #005baa;
+  height: 0.25rem;
+  width: 6.25rem;
+  border: none;
+  margin: 1.125rem 0 1.875rem 0;
+}
+
+.section-description {
+  color: #979797;
+  overflow-x: hidden;
+  font: 400 13px/1.6 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 550;
+  font-size: 20px;
+}
+
+/* Botones */
+.download-btn {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #717171;
+  font-weight: 500;
+  background: #fff;
+  border-radius: 3.125rem;
+  transition: 0.3s ease-in-out;
+  border: 2px solid #c2c2c2;
+  margin-top: 2.188rem;
+  padding: 0.625rem 1.875rem;
+}
+
+.download-btn:hover {
+  border: 0.125rem solid #005baa;
+  color: #005baa;
+}
+
+/* Estilos del swiper */
+.aquatic-swiper {
+  width: 100%;
+  padding-top: 3.125rem;
+}
+
+.aquatic-swiper .swiper-pagination-bullet,
+.aquatic-swiper .swiper-pagination-bullet-active {
+  background: #fff;
+}
+
+.aquatic-swiper .swiper-pagination {
+  bottom: 1.25rem !important;
+}
+
+.aquatic-slide {
+  width: 18.75rem;
+  height: 28.125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.slide-content {
+  display: none;
+  opacity: 0;
+  padding-bottom: 0.625rem;
+  width: 100%;
+}
+
+.swiper-slide-active .slide-content {
+  display: block;
+  opacity: 1;
+}
+
+.slide-content h2 {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  line-height: 0.8;
+  margin-bottom: 3px;
+  padding: 0 0 0 1.563rem;
+  text-transform: uppercase;
+  text-shadow: #000000;
+}
+
+.slide-content p {
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding-left: 1.6%;
+  padding-right: 1.6%;
+  padding-bottom: 1.6%;
+  padding-top: 1.5%;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 19px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  background-color: #cacaca76;
+  border-radius: 20px;
+  background-size: auto;
+}
+
+.explore-btn {
+  margin: 1.25rem 1.563rem 3.438rem 1.563rem;
+  padding: 0.438em 1.3rem;
+  font-size: 0.9rem;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #717171;
+  font-weight: 500;
+  background: #fff;
+  border-radius: 3.125rem;
+  transition: 0.3s ease-in-out;
+  margin-top: 5px;
+}
+
+.explore-btn:hover {
+  color: #005baa;
+}
+
+/* Fondos de los slides */
+.aquatic-slide--one {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+              url("gallery2.jpg") no-repeat center/cover;
+}
+
+.aquatic-slide--two {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+              url("gallery5.jpg") no-repeat center/cover;
+}
+
+.aquatic-slide--three {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+              url("gallery4.jpg") no-repeat center/cover;
+}
+
+.aquatic-slide--four {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+              url("gallery3.jpg") no-repeat center/cover;
+}
+
+.aquatic-slide--five {
+  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+              url("gallery1.jpg") no-repeat center/cover;
+}
+
+/* Efectos 3D */
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right {
+  background-image: none;
+}
+
+/* Media queries responsive */
+@media screen and (min-width: 48rem) {
+  .aquatic-section {
+    display: flex;
+    align-items: center;
+    column-gap: 3rem;
+  }
+
+  .aquatic-content {
+    flex: 1;
+  }
+
+  .aquatic-swiper {
+    flex: 1.5;
+  }
+
+  .aquatic-bg,
+  .aquatic-bg2 {
+    opacity: 0.1;
+  }
+}
+
+@media screen and (min-width: 93.75rem) {
+  .aquatic-swiper {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aquatic-section {
+    min-height: auto;
+    padding-block: 2rem;
+  }
+
+  .aquatic-slide {
+    height: 25rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
